@@ -50,6 +50,15 @@
                     <source type="video/mp4" src="video/scene_onePerson.mp4"/>
                 </video>
 
+               	<video
+               		id="video2"
+               		style="display:none"
+               		preload="auto"
+               		crossorigin="anonymous"
+               		playsinline webkit-playsinline>
+               		<source type="video/mp4" src="video/scene_onePersonAction.mp4"/>
+               	</video>
+
              
 
 			</a-assets>
@@ -73,6 +82,16 @@
 				show-btn-when-vid-ended="target: #first"
 				play-on-vrdisplayactivate-or-enter-vr>
 				</a-videosphere>
+				<!-- scene 2 -->
+				<a-videosphere
+				visible="false"
+				id="videosphere2"
+				src="#video2" 
+				mixin="scene-rotation"
+				autoplay = "true"
+				onclick="window.location.href='levelup.html'"
+				>
+				</a-videosphere>
 
 			</a-entity>
 
@@ -83,8 +102,8 @@
 
 			<!-- Helper label -->
 				<a-gui-label 
-				width="2.5" height="0.75"
-				value="Please try again..."
+				width="5" height="0.75"
+				value="Always keep left to avoid collision"
 				font-family="Arial"
 				margin="0 0 0.05 0"
 				background-color = "#ff0000"
@@ -115,10 +134,10 @@
 				<a-gui-button 
 				width="2.5" height="0.75"
 				 key-code="32"
-				value="Speed Up"
+				value="Left"
 				font-family="Arial"
 				margin="0 0 0.05 0"
-				error-message
+				onclick="window.location.href='levelup.html'"
 				>
 				</a-gui-button>
 
@@ -126,43 +145,15 @@
 				<a-gui-button 
 				width="2.5" height="0.75"
 				 key-code="32"
-				value="Slow Down"
+				value="Right"
 				font-family="Arial"
 				margin="0 0 0.05 0"
-				scene1
+				error-message
 				>
 				</a-gui-button>
-
-		
-
 			</a-gui-flex-container>
-			<!-- Level Completed -->
-			   <a-gui-flex-container id="third" visible="false"
-			   flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="1" width="50" height="30"
-			   position="0 0 0" rotation="0 0 0" panel-color = "#00FF00"
-			   >
-			    <!-- Question label -->
-			    <a-gui-label 
-			    width="5" height="0.75"
-			    value="Level 1 Completed!"
-			    font-family="Arial"
-			    margin="0 0 0.05 0"
-			    >
-			    </a-gui-label>
-			     
 
-			    <!-- Button to link to next scene -->
-			    <a-gui-button 
-			    width="2.5" height="0.75"
-			     key-code="32"
-			    value="GO!"
-			    font-family="Arial"
-			    margin="0 0 0.05 0"
-			    onclick="window.location.href='level2.html'"
-			    >
-			    </a-gui-button>
-
-			   </a-gui-flex-container>
+			
 			<!-- Camera + cursor. -->
 			<a-entity id="cameraRig" camera position="0 1.6 0">
 				<a-camera look-controls position="0 0 0">
