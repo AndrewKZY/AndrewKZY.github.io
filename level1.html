@@ -88,8 +88,7 @@
 				id="videosphere2"
 				src="#video2" 
 				mixin="scene-rotation"
-				autoplay = "true"
-				onclick="window.location.href='levelup.html'"
+				show-btn-when-vid-ended="target: #second"
 				>
 				</a-videosphere>
 
@@ -133,11 +132,11 @@
 				<!-- Button to display error -->
 				<a-gui-button 
 				width="2.5" height="0.75"
-				 key-code="32"
+				key-code="32"
 				value="Left"
 				font-family="Arial"
 				margin="0 0 0.05 0"
-				onclick="window.location.href='levelup.html'"
+				scene1
 				>
 				</a-gui-button>
 
@@ -152,6 +151,24 @@
 				>
 				</a-gui-button>
 			</a-gui-flex-container>
+
+			<!-- Question For how fast should you go -->
+			<a-gui-flex-container id="second" visible="false"
+			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
+			position="2 2.5 -4" rotation="0 0 0"
+			>
+			<a-gui-button 
+				width="2.5" height="0.75"
+				key-code="32"
+				value="next"
+				font-family="Arial"
+				margin="0 0 0.05 0"
+				onclick="window.location.href='levelup.html'"
+				>
+				</a-gui-button>
+
+			</a-gui-flex-container>
+
 
 			
 			<!-- Camera + cursor. -->
