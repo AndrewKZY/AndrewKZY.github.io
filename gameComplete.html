@@ -2,13 +2,16 @@
 <html>
 <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
-
     <script src="js/aframe.min.js"></script>
     <script src="js/gradientsky.min.js"></script>
 
 
     <!-- a-frame and community plugins!!!!--> 
     <script src="js/aframe-gui.min.js"></script>
+
+
+
+    <!-- Use components defined in separate files. -->
     
 <title>Cherish Your Life</title>
 
@@ -18,32 +21,22 @@
     <a-scene>
       <a-sky color="#d6ee92"></a-sky>
 
-      <a-entity text="value:Congratulation!\nYou have completed level 1!\n Click Next Level to continue playing; color:#8d6e5d; shader: msdf; font:https://cdn.aframe.io/fonts/Roboto-msdf.json;" scale="15 15 15" position="2 3 -5"></a-entity>
+      <a-entity text="value:Congratulation!\nYou have completed the entire demo for CherishLifeAPP VR !\n We hope that you have learn how to ride safely in Singapore Road!\n
+      Thanks for your time!; color:#8d6e5d; shader: msdf; font:https://cdn.aframe.io/fonts/Roboto-msdf.json;" scale="15 14 15" position="2 3 -5"></a-entity>
 
       <a-gui-flex-container id="first" visible="true"
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
-      position="1 1 -4" rotation="0 0 0"
+      position="1 0.5 -4" rotation="0 0 0"
       >
          
         <!-- Button to display error! -->
         <a-gui-button 
-        width="2.5" height="0.75"
+        width="3.5" height="0.75"
          key-code="32"
-        value="Next Level"
+        value="Go To Main Screen"
         font-family="Arial"
         margin="0 0 0.05 0"
-        onclick="window.location.href='level2.html'"
-        >
-        </a-gui-button>
-
-        <!-- Button to link to next scene -->
-        <a-gui-button 
-        width="2.5" height="0.75"
-         key-code="32"
-        value="Exit"
-        font-family="Arial"
-        margin="0 0 0.05 0"
-        onclick="window.location.href='mainScreen.html'"
+        onclick="window.location.href='index.html'"
         >
         </a-gui-button>
       </a-gui-flex-container>

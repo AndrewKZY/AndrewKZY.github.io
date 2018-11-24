@@ -2,16 +2,12 @@
 <html>
 	<head>
 		<meta name="apple-mobile-web-app-capable" content="yes">
-
-		<script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-
-
+		<script src="js/aframe.min.js"></script>
 
 		<!-- a-frame and community plugins--> 
-        <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
-        <script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
-
-        <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
+        <script src="js/aframe-gui.min.js"></script>
+        <script src="js/aframe-look-at-component.min.js"></script>
+        <script src="js/aframe-extras.min.js"></script>
 
 		<!-- Use components defined in separate files. -->
 		 	
@@ -22,9 +18,6 @@
 		<script src="js/hide-once-playing2.js"></script>
 		<script src="js/play-on-vrdisplayactivate-or-enter-vr.js"></script>
 		<script src="js/scene1-onclick.js"></script>
-		<script src="js/scene1b-onclick.js"></script>
-		<script src="js/scene1c-onclick.js"></script>
-		<script src="js/scene2-onclick.js"></script>
 		<script src="js/show-btn-when-vid-ended.js"></script>
 		<script src="js/error-message.js"></script>
 
@@ -41,7 +34,6 @@
 				<!-- Change video perpective here --> 
 				<a-mixin id="scene-rotation" rotation="0 -55 0"></a-mixin>
 
-             
 
 				<!-- video assets -->
                 <video 
@@ -64,16 +56,8 @@
                     preload="auto"
                     crossorigin="anonymous"
                     playsinline webkit-playsinline>
-                    <source type="video/mp4" src="video/scene_trafficLight.mp4"/>
-                </video>
-                <video 
-                    id="video4"
-                    style="display:none"
-                    preload="auto"
-                    crossorigin="anonymous"
-                    playsinline webkit-playsinline>
-                    <source type="video/mp4" src="video/scene_trafficLightAction.mp4"/>
-                </video>                         
+                    <source type="video/mp4" src="video/trafficLight.mp4"/>
+                </video>                        
 
 			</a-assets>
 
@@ -93,7 +77,7 @@
 				src="#video1" 
 				mixin="scene-rotation"
 				autoplay = "true"
-				show-btn-when-vid-ended="target: #first"
+				show-btn-when-vid-ended="target: #first-2"
 				play-on-vrdisplayactivate-or-enter-vr>
 				</a-videosphere>
 				
@@ -103,7 +87,8 @@
 				id="videosphere2"
 				src="#video2" 
 				mixin="scene-rotation"
-				autoplay = "true">
+				autoplay = "true"
+				show-btn-when-vid-ended="target: #second-2">
 				</a-videosphere>
 
 				<!-- scene 3 -->
@@ -113,32 +98,40 @@
 				src="#video3" 
 				mixin="scene-rotation"
 				autoplay = "true"
-				show-btn-when-vid-ended="target: #second">
-				</a-videosphere>
+				show-btn-when-vid-ended="target: #third-2">
 
-				<!-- scene 4 -->
-				<a-videosphere
-				visible="false"
-				id="videosphere4"
-				src="#video4" 
-				mixin="scene-rotation"
-				autoplay = "true"
-				show-btn-when-vid-ended="target: #third"
-				>
 				</a-videosphere>
 
 
 			</a-entity>
 
-			<a-gui-flex-container id="helper" visible="false"
+			<a-gui-flex-container id="helper2-1" visible="false"
 			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="2.5" height="2.5"
 			position="2 4.8 -4" rotation="0 0 0" panel-color="red"
 			>
 
 				<!-- Helper label -->
 				<a-gui-label 
-				width="2.5" height="0.75"
-				value="Please try again..."
+				width="7.5" height="0.75"
+				value="Do not cross zebra crossing with your skateboard on!"
+				font-family="Arial"
+				margin="0 0 0.05 0"
+				background-color = "#ff0000"
+				>
+				</a-gui-label>
+
+
+			</a-gui-flex-container>
+
+			<a-gui-flex-container id="helper2-2" visible="false"
+			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="2.5" height="2.5"
+			position="2 4.8 -4" rotation="0 0 0" panel-color="red"
+			>
+
+				<!-- Helper label -->
+				<a-gui-label 
+				width="6.5" height="0.75"
+				value="It is dangerous to ride while crossing road!"
 				font-family="Arial"
 				margin="0 0 0.05 0"
 				background-color = "#ff0000"
@@ -149,10 +142,11 @@
 			</a-gui-flex-container>
 
 
+
 			<!-- Question: What should you do at a zebra crossing -->
-			<a-gui-flex-container id="first" visible="false"
+			<a-gui-flex-container id="first-2" visible="false"
 			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
-			position="2 3.1 -4" rotation="0 0 0"
+			position="100 100 100" rotation="0 0 0"
 			>
 			
 				<!-- Question label -->
@@ -167,6 +161,7 @@
 				 
 				<!-- Button to display error -->
 				<a-gui-button 
+				id="wrong2-1"
 				width="7" height="0.75"
 				 key-code="32"
 				value="Cross while still riding your device"
@@ -183,7 +178,7 @@
 				value="Dismount your device and push while crossing"
 				font-family="Arial"
 				margin="0 0 0.05 0"
-				scene1
+				scene1-2
 				>
 				</a-gui-button>
 
@@ -191,9 +186,9 @@
 
 
 			<!-- Question: What should you do while crossing the road -->
-			<a-gui-flex-container id="second" visible="false"
+			<a-gui-flex-container id="second-2" visible="false"
 			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
-			position="2 2.5 -4" rotation="0 0 0"
+			position="100 100 100" rotation="0 0 0"
 			>
 				<!-- Question label -->
 				<a-gui-label 
@@ -206,6 +201,7 @@
 				 
 				<!-- Button to display error -->
 				<a-gui-button 
+				id="wrong2-2"
 				width="7" height="0.75"
 				 key-code="32"
 				value="Start riding your device again"
@@ -222,7 +218,7 @@
 				value="Continue to cross while pushing your device along"
 				font-family="Arial"
 				margin="0 0 0.05 0"
-				scene1c
+				scene1c-2
 				>
 				</a-gui-button>
 
@@ -230,21 +226,24 @@
 
 
 			<!-- Level Completed -->
-   			<a-gui-flex-container id="third" visible="false"
-   			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="1" width="50" height="30"
-   			position="2 2 -5" rotation="0 0 0" panel-color = "#228B22"
-   			>
-   				<!-- Button to link to next scene -->
-				  <a-gui-button 
-				  width="8" height="0.75"
-				  key-code="32"
-				  value="Back to main Screen!.."
-				  font-family="Arial"
-				  margin="0 0 0.05 0"
-				  onclick="window.location.href='level1.html'"
-				  >
-				 </a-gui-button>
-				</a-gui-flex-container>
+   			</a-gui-flex-container>
+
+      <!-- Question For how fast should you go -->
+      <a-gui-flex-container id="third-2" visible="false"
+      flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
+      position="1000 1000 1000" rotation="0 0 0"
+      >
+      <a-gui-button 
+        width="4" height="0.75"
+        key-code="32"
+        value="Starting Stage 3 in 3 Seconds"
+        font-family="Arial"
+        margin="0 0 0.05 0"
+        onclick="window.location.href='levelup2.html'"
+        >
+        </a-gui-button>
+
+      </a-gui-flex-container>
 
 
 			<!-- Camera + cursor. -->

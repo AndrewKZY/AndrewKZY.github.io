@@ -37,31 +37,27 @@
 				<!-- video assets -->
                 <video 
                     id="video1"
-                    playsinline webkit-playsinline
-                    width="100%" 
-                    height="100%" 
-                    preload="auto">
+                    autoplay
+                    preload="auto"
+                    crossorigin="anonymous"
+                    playsinline webkit-playsinline>
                     <source type="video/mp4" src="video/scene_whichPath.mp4"/>
                 </video>
         
                 <video
                     id="video2"
-                    playsinline webkit-playsinline
                     preload="auto"
-                    width="100%" 
-                    height="100%">
+                    crossorigin="anonymous"
+                    playsinline webkit-playsinline>
                     <source type="video/mp4" src="video/scene_whichPathAction.mp4"/>
                 </video>
 
                 <video 
                     id="video3"
-                    playsinline webkit-playsinline
                     preload="auto"
-                    width="100%" 
-                    height="100%">
-                    style="display:none"
-                    preload="auto"
-                    playsinline>
+                    crossorigin="anonymous"
+                    playsinline webkit-playsinline>
+		    >
                     <source type="video/mp4" src="video/scene_howFastAction.mp4"/>
 			</a-assets>
 
@@ -80,7 +76,7 @@
 				id="videosphere1"
 				src="#video1" 
 				mixin="scene-rotation"
-				show-btn-when-vid-ended="target: #first"
+				show-btn-when-vid-ended="target: #first-3"
 
 				play-on-vrdisplayactivate-or-enter-vr>
 
@@ -92,7 +88,9 @@
 				id="videosphere2"
 				src="#video2" 
 
-				mixin="scene-rotation">
+				mixin="scene-rotation"
+				show-btn-when-vid-ended="target: #second-3"
+				>
 
 				</a-videosphere>
 
@@ -101,12 +99,14 @@
 				visible="false"
 				id="videosphere3"
 				src="#video3"
-				mixin="scene-rotation">
+				mixin="scene-rotation"
+				show-btn-when-vid-ended="target: #third-3"
+				>
 
 				</a-videosphere>
 
 			</a-entity>
-			<a-gui-flex-container id="helper" visible="false"
+			<a-gui-flex-container id="helper3-1" visible="false"
 			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="2.5" height="2.5"
 			position="2 4.2 -4" rotation="0 0 0" panel-color="red"
 			>
@@ -114,7 +114,6 @@
 				<!-- Helper label -->
 				<a-gui-label 
 				width="9" height="0.75"
-				id = "helperText"
 				value = "If there is park connector, you should use it to minimise accident"
 				font-family="Arial"
 				margin="0 0 0.05 0"
@@ -125,7 +124,7 @@
 
 			</a-gui-flex-container>
 
-			<a-gui-flex-container id="helper-speed" visible="false"
+			<a-gui-flex-container id="helper3-2" visible="false"
 
 			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="2.5" height="2.5"
 			position="2 4.2 -4" rotation="0 0 0" panel-color="red"
@@ -133,10 +132,8 @@
 
 				<!-- Helper label -->
 				<a-gui-label 
-				width="2.5" height="0.75"
-
-				id = "helperText"
-				value = 'test'
+				width="5" height="0.75"
+				value = 'Ride slowly does not equal to safer!'
 				font-family="Arial"
 				margin="0 0 0.05 0"
 				background-color = "#ff0000"
@@ -148,9 +145,9 @@
 
 
 			<!-- Question For Which path should you take -->
-			<a-gui-flex-container id="first" visible="false"
+			<a-gui-flex-container id="first-3" visible="false"
 			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
-			position="2 2.5 -4" rotation="0 0 0"
+			position="1000 1000 1000" rotation="0 0 0"
 			>
 			
 				<!-- Question label -->
@@ -166,7 +163,8 @@
 				<!-- Button to display error -->
 				<a-gui-button 
 				width="2.5" height="0.75"
-				 key-code="32"
+				key-code="32"
+				id = 'wrong3-1'
 				value="Shared Path"
 				font-family="Arial"
 				margin="0 0 0.05 0"
@@ -181,7 +179,7 @@
 				value="Park Connector"
 				font-family="Arial"
 				margin="0 0 0.05 0"
-				scene1
+				scene1-3
 				>
 				</a-gui-button>
 
@@ -190,9 +188,9 @@
 
 
 			<!-- Question For how fast should you go -->
-			<a-gui-flex-container id="second" visible="false"
+			<a-gui-flex-container id="second-3" visible="false"
 			flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
-			position="2 2.5 -4" rotation="0 0 0"
+			position="1000 1000 1000" rotation="0 0 0"
 			>
 				<!-- Question label -->
 				<a-gui-label 
@@ -206,6 +204,7 @@
 				<!-- Button to display error -->
 				<a-gui-button 
 				width="2.5" height="0.75"
+				id="wrong3-2"
 				 key-code="32"
 				value="15km/hr"
 				font-family="Arial"
@@ -221,37 +220,28 @@
 				value="25km/hr"
 				font-family="Arial"
 				margin="0 0 0.05 0"
-				scene2
+				scene2-3
 				>
 				</a-gui-button>
 
 			</a-gui-flex-container>
 
 			<!-- Level Completed -->
-   <a-gui-flex-container id="third" visible="false"
-   flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="1" width="50" height="30"
-   position="2 2 -5" rotation="0 0 0" panel-color = "#228B22"
-   >
-    <!-- Question label -->
-    <a-gui-label 
-    width="9" height="0.75"
-    value="Game Completed Thank you for playing"
-    font-family="Arial"
-    margin="0 0 0.05 0"
-    >
-    </a-gui-label>
+      <a-gui-flex-container id="third-3" visible="false"
+      flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
+      position="1000 1000 1000" rotation="0 0 0"
+      >
+      <a-gui-button 
+        width="4" height="0.75"
+        key-code="32"
+        value="GameCompleted!"
+        font-family="Arial"
+        margin="0 0 0.05 0"
+        onclick="window.location.href='gameComplete.html'"
+        >
+        </a-gui-button>
 
-
-    <!-- Button to link to next scene -->
-    <a-gui-button 
-    width="8" height="0.75"
-    key-code="32"
-    value="Back to main Screen!.."
-    font-family="Arial"
-    margin="0 0 0.05 0"
-    onclick="window.location.href='mainScreen.html'"
-    >
-   </a-gui-button>
+      </a-gui-flex-container>
 
   </a-gui-flex-container>
 

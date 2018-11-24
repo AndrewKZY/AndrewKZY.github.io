@@ -3,27 +3,20 @@
   <head>
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-
+    <script src="js/aframe.min.js"></script>
 
     <!-- a-frame and community plugins--> 
-        <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
-        <script src="https://unpkg.com/aframe-look-at-component@0.5.1/dist/aframe-look-at-component.min.js"></script>
-
-        <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.2.0/dist/aframe-extras.min.js"></script>
+        <script src="js/aframe-gui.min.js"></script>
+        <script src="js/aframe-look-at-component.min.js"></script>
+        <script src="js/aframe-extras.min.js"></script>
 
     <!-- Use components defined in separate files. -->
        
     <script src="js/arrow-key-rotation.js"></script>
-    <script src="js/handle-btn1.js"></script>
-    <script src="js/handle-btn2.js"></script>
-    <script src="js/hide-once-playing.js"></script>
     <script src="js/play-on-vrdisplayactivate-or-enter-vr.js"></script>
     <script src="js/scene1-onclick.js"></script>
-    <script src="js/scene2-onclick.js"></script>
     <script src="js/show-btn-when-vid-ended.js"></script>
     <script src="js/error-message.js"></script>
-    <script src="js/backtomain.js"></script>
     
   </head>
 
@@ -79,7 +72,7 @@
         src="#video1" 
         mixin="scene-rotation"
         autoplay = "true"
-        show-btn-when-vid-ended="target: #first"
+        show-btn-when-vid-ended="target: #first-1"
         play-on-vrdisplayactivate-or-enter-vr>
         </a-videosphere>
         <!-- scene 2 -->
@@ -88,13 +81,13 @@
         id="videosphere2"
         src="#video2" 
         mixin="scene-rotation"
-        show-btn-when-vid-ended="target: #second"
+        show-btn-when-vid-ended="target: #second-1"
         >
         </a-videosphere>
 
       </a-entity>
 
-      <a-gui-flex-container id="helper" visible="false"
+      <a-gui-flex-container id="helper1-1" visible="false"
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="2.5" height="2.5"
       position="2 4.2 -4" rotation="0 0 0" panel-color="red"
       >
@@ -111,13 +104,10 @@
 
       </a-gui-flex-container>
 
-GitHub
-rdub80/aframe-gui
-Graphical User Interface Component Framework for A-Frame VR - rdub80/aframe-gui
 <!-- Question For Should i keep left or keep right -->
-      <a-gui-flex-container id="first" visible="false"
+      <a-gui-flex-container id="first-1" visible="false"
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
-      position="2 2.5 -4" rotation="0 0 0"
+      position="1000 1000 1000" rotation="0 0 0"
       >
         
       
@@ -138,12 +128,13 @@ Graphical User Interface Component Framework for A-Frame VR - rdub80/aframe-gui
         value="Left"
         font-family="Arial"
         margin="0 0 0.05 0"
-        scene1
+        scene1-1
         >
         </a-gui-button>
 
         <!-- Button to link to next scene -->
         <a-gui-button 
+        id="wrong1-1"
         width="2.5" height="0.75"
         key-code="32"
         value="Right"
@@ -155,9 +146,9 @@ Graphical User Interface Component Framework for A-Frame VR - rdub80/aframe-gui
       </a-gui-flex-container>
 
       <!-- Question For how fast should you go -->
-      <a-gui-flex-container id="second" visible="false"
+      <a-gui-flex-container id="second-1" visible="false"
       flex-direction="column" justify-content="center" align-items="normal" component-padding="0.1" opacity="0" width="3.5" height="4.5"
-      position="2 2.5 -4" rotation="0 0 0"
+      position="1000 1000 1000" rotation="0 0 0"
       >
       <a-gui-button 
         width="2.5" height="0.75"
